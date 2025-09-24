@@ -1,0 +1,57 @@
+{
+  "name": "n8n-nodes-random",
+  "version": "0.1.0",
+  "description": "Nó personalizado para n8n que gera números aleatórios usando random.org",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "author": {
+    "name": "Erick Silva",
+    "email": "erickjorgesilva@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JSilva-Erick/Custom-Random-N8N.git"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && npx copyfiles -u 1 \"src/nodes/**/*.svg\" dist",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Random/Random.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "prettier": "^3.5.3",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "n8n-core": "*",
+    "n8n-nodes-base": "*"
+  }
+}
