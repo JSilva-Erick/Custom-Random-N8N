@@ -93,8 +93,6 @@ Exemplo de saída:
 ]
 ```
 
-Para entradas dinâmicas, use outro nó (ex: Set) para enviar valores e conecte ao Random.
-
 ---
 
 
