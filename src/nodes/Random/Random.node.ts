@@ -59,14 +59,14 @@ export class Random implements INodeType {
         }
 
         // 🔹 Validação se min <= max
-        if (min > max) {
+        if (min >= max) {
           throw new Error(
-            `O valor mínimo (${min}) não pode ser maior que o valor máximo (${max}).`,
+            `O valor mínimo (${min}) não pode ser maior ou igual ao valor máximo (${max}).`,
           );
         }
 
-        const response = await this.helpers.request({
-          uri: `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`,
+        const response = await this.helpers.httpRequest({
+          url: `https://www.random.org/integers/?num=1&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`,
           method: 'GET',
           json: false,
         });
